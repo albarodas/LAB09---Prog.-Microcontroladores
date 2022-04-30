@@ -144,6 +144,7 @@ void config_clk(void)           // CONFIGURACION DEL RELOJ
 //CONFIGURACION TMR0
 void config_tmr0(void)
 {
+    // generar  una interrupción  y  aumentar  contador.
     OPTION_REGbits.T0CS = 0;  // BIT 5 --> EN 0 PARA = FOSC/4
     OPTION_REGbits.T0SE = 0;  // BIT 4 --> EN 0 PARA = Increment on low-to-high transition on T0CKI pin
     OPTION_REGbits.PSA = 0;   // BIT 3 --> EN 0 PARA = ASIGNAR VALOR DE PRESCALER AL MODULO DEL TIMER0
