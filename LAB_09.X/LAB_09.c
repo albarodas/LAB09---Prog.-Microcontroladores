@@ -47,9 +47,9 @@ void config_inst_outs(void);
 void config_clk(void);
 void config_tmr0(void);
 void config_adc(void);
-void config_pwm2(void);
+void config_pwm_motor2(void);
 void config_interrupciones(void);
-void config_pwm1(void);
+void config_pwm_motor1(void);
 /*------------------------------------------------------------------------------
  * INTERRUPCIONES 
  ------------------------------------------------------------------------------*/
@@ -96,8 +96,8 @@ void main(void)
     config_inst_outs();
     config_clk();
     config_adc();
-    config_pwm1();
-    config_pwm2();
+    config_pwm_motor1();
+    config_pwm_motor2();
     config_interrupciones();
     config_tmr0();
     
@@ -170,7 +170,7 @@ void config_adc(void)
     return;
 }
 // CONFIGURACION PWM --> MOTOR 1
-void config_pwm1(void)
+void config_pwm_motor1(void)
 {
     // EL PWM GENERA SEÑALES DE FRECUENCIA Y CICLO DE TRABAJO. MODULO CCP Y TIMER2, 
     // TRABAJAN JUNTOS PARA FORMAR UN MODULADOR DE ANCHO DE PULSO, EN BASE A UN PERÍODO.
@@ -197,7 +197,7 @@ void config_pwm1(void)
     TRISCbits.TRISC2 = 0;           // RC2 --> SALIDA
 }
 // CONFIGURACION PWM --> MOTOR 2
-void config_pwm2(void)
+void config_pwm_motor2(void)
 {
     TRISCbits.TRISC1 = 1;           // RC1/CCP2 --> LUEGO LAS IGUALAMOS A CERO.
     CCP2CONbits.CCP2M = 0b1100;     // 11xx = PWM mode.
